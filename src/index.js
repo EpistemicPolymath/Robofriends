@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.css'; // Main CSS
+import App from './Containers/App.js'; // App Component - Parent Node
 import * as serviceWorker from './serviceWorker';
+import 'tachyons';
+ // If no extension, it assumes it is .js
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
