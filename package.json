@@ -10,6 +10,9 @@
     "redux": "^4.0.4",
     "tachyons": "^4.11.1"
   },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
