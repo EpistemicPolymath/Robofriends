@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 import './index.css'; // Main CSS
 import App from './Containers/App.js'; // App Component - Parent Node
 import * as serviceWorker from './serviceWorker';
-import { searchRobots } from './reducers';
+// Reducers
+import { searchRobots, requestRobots } from './reducers';
 import 'tachyons';
  // If no extension, it assumes it is .js
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const rootReducer = combineReducers({searchRobots, requestRobots});
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
             <Provider store={store}>
